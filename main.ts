@@ -12,7 +12,6 @@ input.onButtonPressed(Button.AB, function () {
     } else if (warn == 6) {
         warn = 5
     }
-    radio.sendValue("warning", warn)
 })
 let dif = 0
 let _new = 0
@@ -39,6 +38,8 @@ basic.forever(function () {
         radio.sendValue("gauche", 1)
     } else if (input.rotation(Rotation.Roll) <= -35 && input.rotation(Rotation.Roll) >= -145) {
         radio.sendValue("droite", 3)
+    } else if (warn == 5) {
+        radio.sendValue("warning", 5)
     } else {
         radio.sendValue("rien", 10)
     }
